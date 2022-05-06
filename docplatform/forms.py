@@ -4,6 +4,7 @@ from django import forms
 from django.forms import ModelForm
 
 
+
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(
         widget= forms.TextInput(
@@ -73,3 +74,13 @@ class LoginForm(forms.Form):
             }
         )
     )
+
+class Uploadform(forms.ModelForm):
+    class Meta:
+        model = Doc
+        fields = ('doc_name','doc')
+
+class Createform(forms.ModelForm):
+    class Meta:
+        model = Workspace
+        fields = ['name','desc']

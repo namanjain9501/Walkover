@@ -1,0 +1,39 @@
+{% extends 'base2.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row g-2">
+        <center>
+        <div class="col-md-4">
+            <div class="card p-3">
+                    <h3 class="mt-3 text-truncate">Create New Workspace</h3> <span class="text justify-content mt-3"></span>
+                    <div class="d-block mt-3"> <a href="{% url 'create' %}" class=" btn btn-danger btn-sm btn-block">Create</a> </div>
+                </div>
+            </div>
+        </div>
+    </center>
+    
+
+    </div>
+</div>
+
+<div class="container mt-5">
+    <center><h2>Join Exsisting Workspaces</h2></center>
+</br>
+    <div class="row g-2">
+        {% for i in workspace_list %}
+        <div class="col-md-4">
+            <div class="card p-3">
+                <div class="mt-3"> <img src="https://i.imgur.com/QChrT6P.png" width="30" />
+                    <h3 class="mt-3 text-truncate">{{i.name}}</h3> <span class="text justify-content mt-3">{{i.desc}}</span>
+                    <div class="d-block mt-3"> <button class=" btn btn-danger btn-sm btn-block">Join</button> </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>       
+        
+
+{% endblock %}
