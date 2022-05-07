@@ -30,7 +30,7 @@ def create(request):
             worksp = form.save(commit=False)
             worksp.admin = request.user
             worksp.save() 
-            return render(request, 'list.html', {'workspace': worksp})
+            return render(request, 'welcome.html', {'worksp': worksp})
     form = Createform()
     return render(request, 'create.html', {'form': form})
 
@@ -40,7 +40,7 @@ def create(request):
 def join(request,id):
     worksp = Workspace.objects.get(pk=id) 
     request.user.workspace.add(worksp)
-    return render(request, 'list.html', {'workspace': worksp})
+    return render(request, 'welcome.html', {'worksp': worksp})
 
 
 
@@ -72,9 +72,9 @@ def upload(request):
     form = Uploadform()
     return render(request, 'upload.html', {'form': form})
 
-def list(request):
-    doc_list = Doc.objects.all()
-    return render(request,'workspace.html',{'list':doc_list})
+def list(request,id):
+    doc_list = Doc.objects.filter(workspace=id)
+    return render(request,'list.html',{'list':doc_list})
     
 
 def register(request):

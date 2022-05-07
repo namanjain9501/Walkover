@@ -47,7 +47,9 @@ body {
 
 <div class="sidenav">
     {% for i in list %}
+
   <a href="{% url 'content' i.id %}">{{i.doc}}</a>
+
   {% endfor %}
   
 </div>

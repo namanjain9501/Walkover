@@ -1,0 +1,128 @@
+body {
+    background-color: #eee;
+    background-image: linear-gradient(to right top, #990404, #b4002e, #bf0064, #a700ab, #081df6)
+}
+.container{
+    background-color: #eee;
+    background-image: linear-gradient(to right top, #990404, #b4002e, #bf0064, #a700ab, #081df6);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.outer-frame{
+    height:370px;
+    width:308px;
+    background-color:#fff;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.card-1{
+    padding:20px;
+    border-bottom:2px solid #eee;
+}
+.first-row{
+    display:flex;
+    justify-content:space-between;
+    position:relative;
+}
+
+.text{
+    font-size:18px;
+    font-weight:900;
+}
+.first-row i{
+    color:pink;
+    
+}
+.card{
+    height:130px;
+    width:250px;
+    background-image: linear-gradient(to right top,#6156E7,#183A92);
+    margin-top:20px;
+    border-radius:10px;
+    padding:10px;
+    position:relative;
+}
+.brand-text{
+    width:100%;
+    text-align:right;
+}
+
+.brand-text span{
+    color:#fff;
+    font-size:14px;
+    text-transform:lowercase;
+    font-weight:bold;
+}
+
+.card-images{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:10px;
+    margin-left:-150px;
+}
+.card-images img:nth-child(2){
+    transform:rotate(90deg);
+}
+.card-details{
+    display:flex;
+    align-items:center;
+    margin-top:40px;
+    position:relative;
+     
+}
+.card-details span{
+    font-size:14px;
+    color:#fff;
+
+}
+.card-details img{
+    position:absolute;
+    right:0px;
+    top:-16px;
+}
+.amount-text{
+    margin-top:25px;
+}
+.amount-text span {
+    
+    font-size:15px;
+    padding-top:30px;
+    font-weight:900;
+}
+
+.last-row{
+    height:100px;
+    width:100%;
+}
+.border-line{
+    height:100%;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+  
+   
+}
+.border-line button{
+    height:40px;
+    width:120px;
+    border:1px solid #eee;
+    margin:0px 5px;
+    border-radius:5px;
+    background-color:#fff;
+    cursor:pointer;
+    transition:all 1s;
+}
+
+.border-line button:hover{
+    background-color:green;
+    color:#fff;
+}
+
+.last-row{
+    background-color:#eee;
+    
+}

@@ -81,6 +81,22 @@ class Uploadform(forms.ModelForm):
         fields = ('doc_name','doc')
 
 class Createform(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "type": "text",
+        "placeholder": "Enter name"
+    }))
+    desc = forms.CharField(
+        widget= forms.Textarea(
+            attrs={
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Write decription of your workspace... ",
+                "rows":"7"
+
+            }
+        )
+    )
     class Meta:
         model = Workspace
         fields = ['name','desc']
