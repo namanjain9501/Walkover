@@ -50,8 +50,8 @@ def content(request,id):
     module_dir = os.path.dirname(__file__)  
     file = str(docx.doc)
     file_path = os.path.join(module_dir, file) 
-    data_file = open(file_path , 'rb')       
-    with open(file_path, 'rb') as pdf:
+    data_file = open(file_path , 'r')       
+    with open(file_path, 'r') as pdf:
         response = HttpResponse(pdf.read(),content_type='application/pdf')
         response['Content-Disposition'] = 'filename=some_file.pdf'
         return response
