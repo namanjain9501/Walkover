@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import FileResponse, Http404, HttpResponse
 import os
 
+
 # def content(request,id):
 #     docx = Doc.objects.get(pk=id) 
 #     with open('/path/to/my/file.pdf', 'r') as pdf:
@@ -13,6 +14,10 @@ import os
 #         response['Content-Disposition'] = 'inline;filename=some_file.pdf'
 #         return response
 #     pdf.closed
+
+def test(request):
+    return render(request,'test.html')
+
 
 def front(request):
     workspace_list = Workspace.objects.all()
@@ -25,9 +30,19 @@ def create(request):
             worksp = form.save(commit=False)
             worksp.admin = request.user
             worksp.save() 
-            return redirect('content')
+            return render(request, 'list.html', {'workspace': worksp})
     form = Createform()
     return render(request, 'create.html', {'form': form})
+
+
+
+
+def join(request,id):
+    worksp = Workspace.objects.get(pk=id) 
+    request.user.workspace.add(worksp)
+    return render(request, 'list.html', {'workspace': worksp})
+
+
 
     
 def content(request,id):
@@ -90,7 +105,7 @@ def login_view(request):
                 user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('register')
+                return redirect('front')
             else:
                 messages.success(request, ("Invalid Credentials!"))
                 return redirect('login')
