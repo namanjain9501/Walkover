@@ -11,6 +11,16 @@ class Workspace(models.Model):
 
 class User(AbstractUser):
     workspace = models.ManyToManyField(Workspace, blank=True)
+
+
+    def get_workspace_values(self):
+        ret = ''
+        print(self.workspace.all())
+    # use models.ManyToMany field's all() method to return all the Department objects that this employee belongs to.
+        for i in self.workspace.all():
+            ret = ret + i.name + ','
+    # remove the last ',' and return the value.
+        return ret[:-1]
     
 
 class Doc(models.Model):
