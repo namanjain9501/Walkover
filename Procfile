@@ -1,1 +1,1 @@
-web: gunicorn walkover.wsgi
+web: gunicorn docplatform.wsgi
