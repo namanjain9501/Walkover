@@ -1,1 +1,1 @@
-web: gunicorn walkover.wsgi
+web: gunicorn walkover.wsgi --log-file -
