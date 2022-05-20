@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'walkover.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':  'd82cdbt3bhd34f',
+        'NAME': 'd82cdbt3bhd34f',
         'User': 'wliksutieaezyc',
         'Password': '0c8b1f3b21e619334a433f2ab1926570c2f4d9536bac2c4b6241b57931a38b9c',
         'HOST': 'ec2-44-195-169-163.compute-1.amazonaws.com',
@@ -98,10 +98,6 @@ DATABASES = {
         
     }
 }
-
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
