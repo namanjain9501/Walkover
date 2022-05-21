@@ -1,4 +1,4 @@
-# simple-django-project
+# Walkover Doc Platform Project
 ## Installation
 
 ### Prerequisites
