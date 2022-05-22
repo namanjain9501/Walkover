@@ -61,7 +61,7 @@ def content(request,id_doc,id_work):
     file_path = os.path.join(module_dir, file) 
     data_file = open(file_path , errors="ignore")       
     data = data_file.readlines()
-    return render(request, 'show.html',{'doc': data,'list':doc_list,'workspace':worksp})
+    return render(request, 'show.html',{'doc': data,'list':doc_list,'workspace':worksp,'docx':docx})
 
     # data_file = open(file_path , 'rb')       
     # with open(file_path, 'rb') as pdf:
@@ -92,6 +92,22 @@ def list(request,id):
     return render(request,'list.html',{'list':doc_list, 'workspace':worksp})
 
 
+def doc_list(request,id):
+    worksp = Workspace.objects.get(pk=id)
+    doc_list = Doc.objects.filter(workspace=id)
+    return render(request,'list_doc.html',{'list':doc_list, 'workspace':worksp})
+
+def delete_doc(request,id_doc,id_work):
+    docx = Doc.objects.get(pk=id_doc)
+    docx.delete() 
+    worksp = Workspace.objects.get(pk=id_work)
+    return render(request,'list_doc.html',{'list':doc_list, 'workspace':worksp})
+
+def delete_workspace(request,id):
+    worksp = Workspace.objects.get(pk=id)
+    worksp.delete()
+    return redirect('front') 
+    
 
 def upload(request,id):
     worksp = Workspace.objects.get(pk=id)

@@ -14,6 +14,9 @@ urlpatterns = [
     path('', views.test, name="test"),
     path('join/<id>', views.join, name="join"),
     path('welcome/<id>', views.welcome, name="welcome"),
+    path('doc_list/<id>', views.doc_list, name="doc_list"),
+    path('delete_doc/<int:id_doc>/<int:id_work>', views.delete_doc, name="delete_doc"),
+    path('delete_workspace/<id>', views.delete_workspace, name="delete_workspace"),
 ]
 
 

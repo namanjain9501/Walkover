@@ -1,3 +1,4 @@
+{% if user.is_authenticated %}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -17,10 +18,11 @@
     {% include 'navbar.html' %}
 
       <div class="formthree ptb-100">
-    <center><h4>Create New Worksapce</h4></center>
+    
+        <div class="container">
+          <h4>Create New Worksapce</h4>
       </br>
     </br>
-        <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     
@@ -35,6 +37,7 @@
                                 </div>
                             </div>
                         </div>
+                      </br>
                         <!--end of /.row-->
                         <div class="form-group">
                             <label class="sr-only">Message</label>
@@ -64,3 +67,4 @@
     -->
   </body>
 </html>
+{% endif %}

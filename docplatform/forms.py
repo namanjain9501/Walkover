@@ -76,7 +76,26 @@ class LoginForm(forms.Form):
     )
 
 class Uploadform(forms.ModelForm):
+    
+    doc_name = forms.CharField(widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "type": "text",
+        "placeholder": "Enter name"
+    }))
+    doc = forms.FileField(
+        widget= forms.FileInput(
+            attrs={
+                "class": "form-control",
+                "type": "file",
+                
+
+            }
+        )
+    )
+
+
     class Meta:
+        
         model = Doc
         fields = ('doc_name','doc')
 
