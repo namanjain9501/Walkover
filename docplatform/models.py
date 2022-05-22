@@ -7,10 +7,17 @@ class Workspace(models.Model):
     name =  models.CharField(max_length=100)
     admin = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='+')
     desc = models.TextField()
+
+    def __str__(self):
+        return self.name
     
 
 class User(AbstractUser):
     workspace = models.ManyToManyField(Workspace, blank=True)
+
+
+    def __str__(self):
+        return self.username
 
 
     def get_workspace_values(self):
@@ -29,6 +36,9 @@ class Doc(models.Model):
     doc = models.FileField()
     time_upload = models.DateTimeField(auto_now_add=True)
     workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.doc
 
 
 

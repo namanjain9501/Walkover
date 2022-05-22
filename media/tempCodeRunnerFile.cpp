@@ -1,0 +1,2 @@
+
+	int M = strlen(pat);
