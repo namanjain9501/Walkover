@@ -101,6 +101,7 @@ def delete_doc(request,id_doc,id_work):
     docx = Doc.objects.get(pk=id_doc)
     docx.delete() 
     worksp = Workspace.objects.get(pk=id_work)
+    doc_list = Doc.objects.filter(workspace=id_work)
     return render(request,'list_doc.html',{'list':doc_list, 'workspace':worksp})
 
 def delete_workspace(request,id):
